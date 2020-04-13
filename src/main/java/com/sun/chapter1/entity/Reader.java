@@ -1,4 +1,4 @@
-package entity;
+package com.sun.chapter1.entity;
 
 /**
  * 读者类

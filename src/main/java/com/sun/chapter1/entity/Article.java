@@ -1,4 +1,6 @@
-package entity;
+package com.sun.chapter1.entity;
+
+import javafx.scene.NodeBuilder;
 
 import java.util.Date;
 
@@ -11,6 +13,17 @@ public class Article {
     private String title;
     private String content;
     private Date createTime;
+
+    //构造函数
+
+
+    public Article(Long id, String author, String title, String content, Date createTime) {
+        this.id = id;
+        this.author = author;
+        this.title = title;
+        this.content = content;
+        this.createTime = createTime;
+    }
 
     //封装
     public Long getId() {

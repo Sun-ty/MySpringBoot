@@ -35,12 +35,31 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
         <!--热部署  实现项目自动刷新-->
-        <!--<dependency>
+       <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
+             <version>2.1.7.RELEASE</version>
+           <!--  这个需要为 true 热部署才有效  表示依赖不会传递-->
             <optional>true</optional>
-        </dependency>-->
+            <scope>true</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jul-to-slf4j</artifactId>
+            <version>1.7.30</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>5.2.5.RELEASE</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -49,6 +68,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <!-- 如果没有该配置，devtools不会生效 -->
                     <fork>true</fork>
                 </configuration>
             </plugin>
