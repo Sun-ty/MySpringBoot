@@ -2,6 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <!--Maven项目的配置文件，可以指定要使用的jar-->
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -13,17 +15,17 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>chapter1</name>
     <description>Demo project for Spring Boot</description>
-
+    <!--jdk版本-->
     <properties>
         <java.version>1.8</java.version>
     </properties>
 
+    <!--指定项目web开发的jar  需要依赖  <parent> -->
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -36,6 +38,23 @@
             </exclusions>
         </dependency>
 
+        <!--配置jdbc-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+       <!-- 引入mysql数据库连接驱动-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <!-- 引入 Druid 阿里巴巴数据池操作 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.22</version>
+        </dependency>
+
         <!--热部署  实现项目自动刷新-->
        <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -45,6 +64,7 @@
             <optional>true</optional>
             <scope>true</scope>
         </dependency>
+        <!--log4j-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jul-to-slf4j</artifactId>
@@ -60,6 +80,18 @@
             <artifactId>spring-web</artifactId>
             <version>5.2.5.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-test</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -74,5 +106,6 @@
             </plugin>
         </plugins>
     </build>
+
 
 </project>

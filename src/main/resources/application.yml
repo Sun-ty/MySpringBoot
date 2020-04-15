@@ -1,6 +1,50 @@
-server:
-  port: 8080
-jsp:
-  init-parameters:
-    development: true
 
+  server:
+    port: 8080
+    tomcat:
+      uri-encoding: utf-8
+  #全局配置日期类型
+  spring:
+    jackson:
+      date-format: yyyy-MM-dd HH:mm:ss
+      time-zone: GMT+8
+   #配置MySQL数据库
+  datasource:
+    url: jdbc:mysql://localhost:3306/book?serverTimezone=GMT&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 5200
+    driver-class-name: com.mysql.jdbc.Driver
+    # 配置阿里巴巴提供的 Druid 数据库连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+    initial-size: 1
+    min-idle: 1
+    max-active: 20
+    test-on-borrow: true
+    stat-view-servlet:
+      allow: true
+     #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+    jpa:
+      hibernate:
+        ddl-auto: update # 新增数据库链接必须的参数
+        # 控制台显示SQL
+        show-sql: true
+        properties:
+          hibernate.format_sql: true
+
+
+  #配置多数据源
+#  datasource:
+#    primary:  这个名字是自己配置的  随意给定
+#      jdbc-url: dbc:mysql://location:3306/db1
+#      username: test
+#      password: 5200
+#      driver-class-name: com.mysql.jdbc.Driver
+#    secondary:  这个名字是自己配置的  随意给定
+#      jdbc-url: dbc:mysql://location:3306/db2
+#      username: test2
+#      password: 5200
+#      driver-class-name: com.mysql.jdbc.Driver

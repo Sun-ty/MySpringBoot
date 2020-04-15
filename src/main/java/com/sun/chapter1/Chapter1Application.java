@@ -7,8 +7,9 @@ package com.sun.chapter1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
-@SpringBootApplication  //声明此应用程序为SpringBoot工程
+@SpringBootApplication()  //声明此应用程序为SpringBoot工程
 public class Chapter1Application {
     public static void main(String[] args) {
         SpringApplication.run(Chapter1Application.class, args);

@@ -1,23 +1,26 @@
 package com.sun.chapter1.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import javafx.scene.NodeBuilder;
 
 import java.util.Date;
 
 /**
- * 物品类
+ * 图书类
  */
 public class Article {
-    private Long id;
+    private int id;
     private String author;
     private String title;
     private String content;
+    //同Spring MVC不能自动转换日期格式。可以在application.yml中进行全局配置
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
 
     //构造函数
+    public Article(){}
 
-
-    public Article(Long id, String author, String title, String content, Date createTime) {
+    public Article(int id, String author, String title, String content, Date createTime) {
         this.id = id;
         this.author = author;
         this.title = title;
@@ -26,11 +29,11 @@ public class Article {
     }
 
     //封装
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
